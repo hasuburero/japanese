@@ -14,6 +14,7 @@ const (
 	original_dictionary_count = 10
 	mozc_dictionary_dir       = "../../mozc-dictionary/"
 	mozc_dictionary_name      = "dictionary"
+	mozc_dictionary_count     = 10
 )
 
 type mozc_struct struct {
@@ -30,9 +31,9 @@ var dictionary map[string][]mozc_struct
 
 func main() {
 	dictionary = make(map[string][]mozc_struct)
-	for i := range original_dictionary_count {
+	for i := range mozc_dictionary_count {
 		file_num := fmt.Sprintf("%02d", i)
-		filename := original_dictionary_dir + original_dictionary_name + file_num + ".txt"
+		filename := mozc_dictionary_dir + mozc_dictionary_name + file_num + ".txt"
 		fmt.Println(filename)
 		fd, err := os.Open(filename)
 		if err != nil {
